@@ -1,0 +1,14 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Privatkonto",
+            "iban": "AT123456677890"
+        },
+        {
+            "id": 2,
+            "name": "Geschäftskonto",
+            "iban": "AT9887654342137890"
+        }
+    ]
+}

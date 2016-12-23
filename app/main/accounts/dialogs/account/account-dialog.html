@@ -1,0 +1,54 @@
+<md-dialog class="account-dialog" aria-label="account dialog" flex="50">
+    <form name="accountForm" ng-submit="vm.submit()" novalidate>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{vm.originalAccount.name}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="vm.close()" aria-label="close dialog">
+                    <md-icon md-font-icon="icon-close"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+
+                <div layout="row">
+                    <md-input-container class="md-block" flex>
+                        <label>Name</label>
+                        <input required name="name" ng-model="vm.account.name" md-maxlength="30">
+
+                        <div ng-messages="accountForm.name.$error">
+                            <div ng-message="required">Pflichtfeld</div>
+                            <div ng-message="md-maxlength">zu lang.</div>
+                        </div>
+                    </md-input-container>
+
+                    <!-- IBAN -->
+                    <md-input-container class="md-block" flex>
+                        <label>IBAN</label>
+                        <input required name="iban" ng-model="vm.account.iban" md-maxlength="30">
+
+                        <div ng-messages="accountForm.iban.$error">
+                            <div ng-message="required">Pflichtfeld</div>
+                            <div ng-message="md-maxlength">zu lang.</div>
+                        </div>
+                    </md-input-container>
+                    <!-- IBAN Ende -->
+
+                </div>
+
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="vm.close()">
+                Abbrechen
+            </md-button>
+            <md-button class="md-raised md-accent submit-button" type="submit" ng-disabled="accountForm.$invalid || accountForm.$pristine">
+                Speichern
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
